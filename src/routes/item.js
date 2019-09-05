@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage})
 
 Route 
-    .all('/*', Auth.authInfo)
+    // .all('/*', Auth.authInfo)
     .get('/', ItemController.getItem)
     .post('/', upload.single('image'), ItemController.insertItem)
     .delete('/:id_item', ItemController.deleteItem)
