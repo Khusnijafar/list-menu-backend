@@ -4,7 +4,7 @@ const userController = require('../controllers/users')
 const Auth = require('../helpers/auth')
 
 router 
-    .all('/*', Auth.authInfo)
+    // .all('/*', Auth.authInfo)
     .get('/', userController.getUser)
     .patch('/:id_user', userController.updateUser)
     .post('/', userController.insertUser)

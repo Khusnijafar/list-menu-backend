@@ -12,6 +12,17 @@ module.exports = {
             })
         })
     },
+    getUserCart: (id_user) => {
+        return new Promise((resolve, reject) => {
+            connection.query('SELECT cart.*, user.username, item.title, item.image, item.price FROM cart INNER JOIN user ON cart.id_user = user.id_user INNER JOIN item ON cart.id_item = item.id_item WHERE cart.status = 1 AND cart.id_user = ?', id_user, (err, result) => {
+                if (!err) {
+                    resolve(result)
+                } else {
+                    reject(new Error(err))
+                }
+            })
+        })
+    },
     checkCart: (id_item, id_user) => {
         return new Promise((resolve, reject) => {
             connection.query('SELECT * FROM cart WHERE status = 1 AND id_item = ? AND id_user = ?', [id_item, id_user], (err, result) => {

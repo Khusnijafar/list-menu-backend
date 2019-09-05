@@ -12,6 +12,17 @@ module.exports = {
                 console.log(error);
             })
     },
+    getUserCart: (req, res) => {
+        const id_user = req.params.id_user
+        cartModels.getUserCart(id_user)
+            .then((resultCart) => {
+                const result = resultCart
+                miscHelper.response(res, result, 200)
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    },
     quantityPlus: (req, res) => {
         const id_cart = req.params.id_cart
         cartModels.quantityPlus(id_cart)

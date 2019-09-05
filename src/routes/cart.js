@@ -6,6 +6,7 @@ const Auth = require('../helpers/auth')
 Route
     
     .get('/', cartController.getCart)
+    .get('/user/:id_user', cartController.getUserCart)
     .patch('/quantityPlus/:id_cart', cartController.quantityPlus)
     .patch('/quantityMinus/:id_cart', cartController.quantityMinus)
     .post('/', cartController.insertCart)
