@@ -7,7 +7,7 @@ module.exports = {
                 if (!err) {
                     resolve(result)
                 } else {
-                    reject(new Error(err))
+                    reject(err)
                 }
             })
         })
